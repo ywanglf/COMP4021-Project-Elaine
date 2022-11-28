@@ -151,7 +151,6 @@ const Player = function(ctx, x, y, gameArea, colour) {
         if (!findIntersection){
             Socket.addObstacle(newObstacle.getXY());
             Playground.updateNumObstacleSet();
-            // obstacles.push(newObstacle);
         }
     };
 
@@ -204,15 +203,13 @@ const Player = function(ctx, x, y, gameArea, colour) {
                 fireX = box.getLeft();
                 fireY = box.getBottom();
 
-                // delete the obstacle
-
                 break;
             }
         }
 
         if (findIntersection){
-            console.log("superficially success");
-            Socket.deleteObstacle(fireX, fireY);
+            Socket.deleteObstacle(fireX, fireY);  
+            Playground.updateNumObstaclesBurnt();
         }
     };
 

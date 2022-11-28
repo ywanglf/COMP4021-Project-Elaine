@@ -143,7 +143,7 @@ const Socket = (function() {
         }
     }
 
-    const updateNumObstacleBurnt = function(username) {
+    const updateNumObstaclesBurnt = function(username) {
         if (socket && socket.connected) {
             socket.emit("update num obstacles burnt statistics", username);
         }
@@ -153,5 +153,5 @@ const Socket = (function() {
         addObstacle, getObstacles, deleteObstacle,
         inititatePlayerLocation, lastLocation, getLocation, 
         initiateStatistics, getStatistics, 
-        updateGemStatistics, updateNumObstacleSet, updateNumObstacleBurnt };
+        updateGemStatistics, updateNumObstacleSet, updateNumObstaclesBurnt };
 })();

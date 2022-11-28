@@ -193,9 +193,9 @@ io.on("connection", (socket) => {
         onlineUsers[username] = { avatar, name };
         console.log("add to online users: "+ username);
 
-        console.log("--- add user --- ");
-        console.log(onlineUsers);
-        console.log("--- --------- --- ");
+        // console.log("--- add user --- ");
+        // console.log(onlineUsers);
+        // console.log("--- --------- --- ");
         // Broadcast the signed-in user to browser
         io.emit("add user", JSON.stringify(socket.request.session.user));
     }
@@ -222,9 +222,9 @@ io.on("connection", (socket) => {
     // Set up the get users event
     socket.on("get users", () => {
         // Send the online users to the browser
-        console.log("--- get users --- ");
-        console.log(onlineUsers);
-        console.log("--- --------- --- ");
+        // console.log("--- get users --- ");
+        // console.log(onlineUsers);
+        // console.log("--- --------- --- ");
         socket.emit("users", JSON.stringify(onlineUsers));
     });
 
@@ -255,9 +255,6 @@ io.on("connection", (socket) => {
 
     // delete the obstacle being burnt
     socket.on("delete obstacle", (x, y) => {
-        console.log("---- delete obstacle ----");
-        console.log("x: "+x+"; "+ y);
-        console.log(" ------");
         const obstacles = JSON.parse(fs.readFileSync("data/obstacles.json"));
         var temp = [];
         obstacles.forEach(function(obstacle) {

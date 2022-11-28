@@ -441,8 +441,12 @@ const Playground = (function() {
         Socket.updateNumObstacleSet(Authentication.getUser().username);
     };
 
+    const updateNumObstaclesBurnt = function() {
+        Socket.updateNumObstaclesBurnt(Authentication.getUser().username);
+    };
+
     return { updateObstacles, getObstacles,
         initiateLocation, retrieveLocation, getLastLocation, 
         initiateStatistics, clearStatistics, retrieveStatistics, gemIsCollected,
-        updateGemStatistics, updateNumObstacleSet };
+        updateGemStatistics, updateNumObstacleSet, updateNumObstaclesBurnt };
 })();
