@@ -10,7 +10,6 @@ const GameMechanics = (function() {
         /* Create the sounds */
         const sounds = {
             background: new Audio("music/background.mp3"),
-            // collect: new Audio("collect.mp3"),
             gameover: new Audio("music/level_completed.mp3")
         };
 
@@ -41,29 +40,34 @@ const GameMechanics = (function() {
 
         // Create the player as according the user setting
         var player;
-        var gem;
+        var gem;            // opponent's gem to be shown
         let fireX;
         let fireY;
         let fireColor = "white";
+        let anotherPlayerX;
+        let anotherPlayerY;
 
         let {playerX, playerY, gemX, gemY} = StartGame.retrieveLocation();
         console.log(Authentication.getUser().username+ " location: " + playerX+", "+playerY);
         if (Authentication.getUser().avatar == "white"){
             player = Player(context, playerX, playerY, gameArea, 0);   // start from bottom left corner
             gem = Gem(context, gemX, gemY, "green");           // The eneger core of the opponent
-            // Playground.initiateLocation(Authentication.getUser().username, 100, 430);   // inititate the location in json
             fireColor = "white";
 
         }
         else if (Authentication.getUser().avatar == "green"){
             player = Player(context, playerX, playerY, gameArea, 1);   // start from top right corner
             gem = Gem(context, gemX, gemY, "purple");         // The eneger core of the opponent
-            // Playground.initiateLocation(Authentication.getUser().username, 750, 430);   // initiate the location in json
             fireColor = "green";
         }
-        var fire = Fire(context, 1000, 1000, fireColor); // to make the fire invisible
+        anotherPlayerX = gemX;
+        anotherPlayerY = gemY;
+        var fire = Fire(context, 1000, 1000, fireColor);    // to make the fire invisible
+        var anotherPlayer = Player(context, anotherPlayerX, anotherPlayerY, gameArea, 2); // make the opponent be black ghost
         
-        
+
+        Playground.initiateLocation(Authentication.getUser().username, playerX, playerY);
+
         /* The main processing of the game */
         function doFrame(now) {
             $("#game-start").hide();
@@ -103,6 +107,25 @@ const GameMechanics = (function() {
                 $("#game-over").show();
                 return;
             }
+
+            // update position of the opponent
+            let {xOpponentLocation, yOpponentLocation} = Playground.getOpponentLastLocation();
+            anotherPlayer.setXY(xOpponentLocation, yOpponentLocation);
+            if (anotherPlayerX < xOpponentLocation) {   // moving right
+                anotherPlayer.move(3);
+                anotherPlayer.stop(3);
+            } else if (anotherPlayerX > xOpponentLocation) {    // moving left
+                anotherPlayer.move(1);
+                anotherPlayer.stop(1);
+            } else if (anotherPlayerY < yOpponentLocation) {    // moving downwards
+                anotherPlayer.move(4);
+                anotherPlayer.stop(4);
+            } else if (anotherPlayerY > yOpponentLocation) {    // moving upwards
+                anotherPlayer.move(2);
+                anotherPlayer.stop(2);
+            }
+            anotherPlayerX = xOpponentLocation;
+            anotherPlayerY = yOpponentLocation;
             
 
             /* Update the sprites */
@@ -114,15 +137,15 @@ const GameMechanics = (function() {
             obstacles.forEach(function(obstacle) {
                 obstacle.update(now);
             });
-            gem.update(now);
             skeleton1.update(now);
             skeleton2.update(now);
             player.update(now);
+            anotherPlayer.update(now);
             if (fire.getAge(now) > fireMaxAge){
                 fire = Fire(context, 1000, 1000, fireColor);
             }
             fire.update(now);
-            
+            gem.update(now);
             
             /* Clear the screen */
             context.clearRect(0, 0, cv.width, cv.height);
@@ -131,12 +154,12 @@ const GameMechanics = (function() {
             obstacles.forEach(function(obstacle) {
                 obstacle.draw(now);
             });
-            gem.draw();
             skeleton1.draw();
             skeleton2.draw();
             player.draw();
+            anotherPlayer.draw();
             fire.draw();
-
+            gem.draw();
             
             /* Process the next frame */
             requestAnimationFrame(doFrame);

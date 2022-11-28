@@ -238,18 +238,19 @@ button.icon:active {
 /* Signin overlay */
 #information{
     width: 1005px;
-    height: 187px;
+    /* height: 187px; */
+    height: 300px;
     background: black;
     color: #b872f5;
     position: fixed;
-    left: 5px; top: 100px;
+    left: 5px; top: 0px;
     padding: 23px;
     line-height: 23px;
 }
 
 #login-instruction {
     width: 1005px;
-    height: 100px;
+    height: 180px;
     background: black;
     color: #af6ee8;
     position: fixed;

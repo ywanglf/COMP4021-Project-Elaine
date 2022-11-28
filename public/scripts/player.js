@@ -36,7 +36,22 @@ const Player = function(ctx, x, y, gameArea, colour) {
         moveLeft:    { x: 288, y: 48, width: 48, height: 48, count: 3, timing: 500, loop: true },
         moveRight: { x: 288, y: 96, width: 48, height: 48, count: 3, timing: 500, loop: true },
         moveUp:  { x: 288, y: 144, width: 48, height: 48, count: 3, timing: 500, loop: true }
-    }];
+    },
+    {
+        // Black
+        /* Idling sprite sequences for facing different directions */
+        idleDown:  { x: 432, y: 192, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        idleLeft:    { x: 432, y: 240, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        idleRight: { x: 432, y: 288, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        idleUp:  { x: 432, y: 336, width: 48, height: 48, count: 3, timing: 500, loop: true },
+
+        /* Moving sprite sequences for facing different directions */
+        moveDown:  { x: 288, y: 192, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        moveLeft:    { x: 288, y: 240, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        moveRight: { x: 288, y: 288, width: 48, height: 48, count: 3, timing: 500, loop: true },
+        moveUp:  { x: 288, y: 336, width: 48, height: 48, count: 3, timing: 500, loop: true }
+    }
+    ];
 
     // This is the sprite object of the player created from the Sprite module.
     const sprite = Sprite(ctx, x, y);
@@ -269,6 +284,7 @@ const Player = function(ctx, x, y, gameArea, colour) {
     // The methods are returned as an object here.
     return {
         getXY: sprite.getXY,
+        setXY: sprite.setXY,
         move: move,
         stop: stop,
         speedUp: speedUp,

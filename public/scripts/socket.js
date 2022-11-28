@@ -67,6 +67,10 @@ const Socket = (function() {
             Playground.retrieveLocation(json);
         });
 
+        socket.on("opponent location", (json) => {
+            Playground.retrieveOpponentLocation(json);
+        });
+
         // retrieve the statistics
         socket.on("statistics", (statistics) => {
             Playground.retrieveStatistics(statistics);
@@ -112,9 +116,15 @@ const Socket = (function() {
         }
     };
 
-    const getLocation = function(x, y) {
+    const getLocation = function() {
         if (socket && socket.connected) {
-            socket.emit("get location", x, y);
+            socket.emit("get location");
+        }
+    };
+
+    const getOpponentLocation = function(){
+        if (socket && socket.connected) {
+            socket.emit("get opponent location");
         }
     };
 
@@ -151,7 +161,7 @@ const Socket = (function() {
 
     return { getSocket, connect, disconnect, postMessage, 
         addObstacle, getObstacles, deleteObstacle,
-        inititatePlayerLocation, lastLocation, getLocation, 
+        inititatePlayerLocation, lastLocation, getLocation, getOpponentLocation,
         initiateStatistics, getStatistics, 
         updateGemStatistics, updateNumObstacleSet, updateNumObstaclesBurnt };
 })();

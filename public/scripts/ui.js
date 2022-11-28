@@ -336,6 +336,8 @@ const Playground = (function() {
     let statistics;
     let xLocation;
     let yLocation;
+    let xOpponentLocation;
+    let yOpponentLocation;
     let obstacles;
     
     const updateObstacles = function(updated) {
@@ -357,10 +359,20 @@ const Playground = (function() {
         yLocation = json["y"];
     };
 
+    const retrieveOpponentLocation = function(json) {
+        xOpponentLocation = json["x"];
+        yOpponentLocation = json["y"];
+    };
+
     const getLastLocation = function() {
         Socket.getLocation();
         console.log("Playground: "+xLocation+", "+yLocation);
         return {xLocation, yLocation};
+    };
+
+    const getOpponentLastLocation = function() {
+        Socket.getOpponentLocation();
+        return { xOpponentLocation, yOpponentLocation };
     };
 
     const initiateStatistics = function(username){
@@ -446,7 +458,7 @@ const Playground = (function() {
     };
 
     return { updateObstacles, getObstacles,
-        initiateLocation, retrieveLocation, getLastLocation, 
+        initiateLocation, retrieveLocation, retrieveOpponentLocation, getLastLocation, getOpponentLastLocation, 
         initiateStatistics, clearStatistics, retrieveStatistics, gemIsCollected,
         updateGemStatistics, updateNumObstacleSet, updateNumObstaclesBurnt };
 })();

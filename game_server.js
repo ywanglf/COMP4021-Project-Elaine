@@ -329,6 +329,23 @@ io.on("connection", (socket) => {
         socket.emit("location", {x, y});
     });
 
+    // retrieve the most updated x, y locations of opponent player
+    socket.on("get opponent location", () => {
+        const { username } = socket.request.session.user;
+        const locations = JSON.parse(fs.readFileSync("data/location.json"));
+        let x;
+        let y;
+        if (locations[0]["user"]["username"] != username){
+            x = locations[0]["user"]["x"];
+            y = locations[0]["user"]["y"];
+        }
+        else if (locations[1]["user"]["username"] != username) {
+            x = locations[1]["user"]["x"];
+            y = locations[1]["user"]["y"];
+        }
+        socket.emit("opponent location", {x, y});
+    });
+
     // initiate the statistics.json
     socket.on("initiate statistics", username => {
         let numObstaclesSet = 0;
