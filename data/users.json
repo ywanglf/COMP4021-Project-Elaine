@@ -1,0 +1,17 @@
+{
+ "1": {
+  "avatar": "white",
+  "name": "1",
+  "password": "$2b$10$9JkoU0a3aOFYA1Ilw1h/YOgjv9Crbs6L.5uhEy2zvKUkHnu6OnZTy"
+ },
+ "2": {
+  "avatar": "green",
+  "name": "2",
+  "password": "$2b$10$VtDzgYbPJYWcEvP2cBKkOu9BKF0b/F9t/8PmLNmWNwymaU5wQQgKS"
+ },
+ "3": {
+  "avatar": "green",
+  "name": "3",
+  "password": "$2b$10$aFi8ZcGiC3jS3kcJ1BhOjeufABgcnu4QgQmjO0/gdHmkrr5PPF4ia"
+ }
+}
