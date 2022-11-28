@@ -2,20 +2,18 @@
 Requirements and Grading Scheme: https://course.cse.ust.hk/comp4021/2022f_project/comp4021_project_marking_2022f.pdf
 
 ## :space_invader:	 Game Description
-GhostMan (League of Legends version :P)
+Ghost Chain 
+
+An online multiplayer game. Every ghost wants to seize the other's energy core to become stronger. But at the same time, each ghost can create obstacles to prevent the opponent from obtaining their own energy core, or destroy the obstacles set by the opponent to plunder the opponent's core. The one that gets the core in the battle wins. 
 
 ## :space_invader:	 Game Mechanics
 Two players start at the same time and they need to protect their own crystal to be stolen by the opponent.
 
 The player can either: 
-1. Set the obstacle to hinder the opponent
-2. Clear the path to steal the opponent's crystal by bomb
+1. Set the obstacle to hinder the opponent (key Q)
+2. Clear the path to steal the opponent's crystal by burning the obstacle (key W)
 
 The player would only win if he/she steals the crystal.
-
-Further improvement if have time:
-1. The bomb could be valid to player
-2. When obstacle is destroyed, rewards(e.g., speedup effect) are available 
 
 ## :space_invader:	 Checklist
 ### Game front page
@@ -24,15 +22,15 @@ Further improvement if have time:
 * [x] Player sign-in
 * [x] Player pair up
 ### Game play page
-* [ ] Things in the game
+* [x] Things in the game
 * [x] Players’ interaction
-* [ ] Game controls
-* [ ] Game duration
+* [x] Game controls
+* [x] Game duration
 * [x] Cheat mode
 ### Game over page
 * [x] Player statistics
 * [x] Player ranking
 * [x] Restart the game/ back to front page
 ### Others
-* [ ] Graphic and sounds
+* [x] Graphic and sounds
 * [ ] Project video
