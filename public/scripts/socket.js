@@ -29,7 +29,7 @@ const Socket = (function() {
             onlineUsers = JSON.parse(onlineUsers);
             
             // Show the online users
-            OnlineUsersPanel.update(onlineUsers);
+            // OnlineUsersPanel.update(onlineUsers);
             StartGame.checkPair(onlineUsers);
             StartGame.setLocation(onlineUsers);
         });
@@ -39,7 +39,7 @@ const Socket = (function() {
             user = JSON.parse(user);
 
             // Add the online user
-            OnlineUsersPanel.addUser(user);
+            // OnlineUsersPanel.addUser(user);
             StartGame.newUser(user);
         });
 
@@ -48,7 +48,7 @@ const Socket = (function() {
             user = JSON.parse(user);
 
             // Remove the online user
-            OnlineUsersPanel.removeUser(user);
+            // OnlineUsersPanel.removeUser(user);
         });
 
         // Set up the obstacles event
@@ -79,8 +79,11 @@ const Socket = (function() {
 
     // This function disconnects the socket from the server
     const disconnect = function() {
-        socket.disconnect();
-        socket = null;
+        if (socket != null) {       // not gameover page
+            socket.disconnect();
+            socket = null;
+        }
+        
     };
 
     // This function adds an obstacle evenr to the server
@@ -159,7 +162,7 @@ const Socket = (function() {
         }
     }
 
-    return { getSocket, connect, disconnect, postMessage, 
+    return { getSocket, connect, disconnect,
         addObstacle, getObstacles, deleteObstacle,
         inititatePlayerLocation, lastLocation, getLocation, getOpponentLocation,
         initiateStatistics, getStatistics, 

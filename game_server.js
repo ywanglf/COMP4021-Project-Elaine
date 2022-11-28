@@ -205,19 +205,42 @@ io.on("connection", (socket) => {
         // Remove the user from online user list
         if (socket.request.session.user){
             const { username } = socket.request.session.user;
-            if (onlineUsers[username])
+            if (onlineUsers[username]){
                 delete onlineUsers[username];
-            console.log("remove from online users: "+ username);
+                console.log("remove from online users when LOGOUT: "+ username);
+            }
             
             // delete statistics
             const statistics = JSON.parse(fs.readFileSync("data/statistics.json"));
-            statistics.pop();
-            fs.writeFileSync("data/statistics.json", JSON.stringify(statistics, null, " "));
+            var temp = [];
+            statistics.forEach(function(stat) {
+                if (stat["user"]["username"] == username){
+                    // skip
+                }
+                else {
+                    temp.push(stat);
+                }
+            });
+            fs.writeFileSync("data/statistics.json", JSON.stringify(temp, null, " "));
 
+            // delete locations
+            const locations = JSON.parse(fs.readFileSync("data/location.json"));
+            var temp = [];
+            locations.forEach(function(stat) {
+                if (stat["user"]["username"] == username){
+                    // skip
+                }
+                else {
+                    temp.push(stat);
+                }
+            });
+            fs.writeFileSync("data/location.json", JSON.stringify(temp, null, " "));
+            
             // Broadcast the signed-out user
             io.emit("remove user", JSON.stringify(socket.request.session.user));
         }
     });
+
 
     // Set up the get users event
     socket.on("get users", () => {
@@ -277,10 +300,10 @@ io.on("connection", (socket) => {
         const locations = JSON.parse(fs.readFileSync("data/location.json"));
 
         // location info of the last game -> clear
-        if (locations.length == 2){
-            locations.pop();
-            locations.pop();
-        }
+        // if (locations.length == 2){
+        //     locations.pop();
+        //     locations.pop();
+        // }
         locations.push(json);
         fs.writeFileSync("data/location.json", JSON.stringify(locations, null, " "));
     });

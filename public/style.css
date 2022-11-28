@@ -191,7 +191,7 @@ button.icon:active {
 }
 
 /* Chat area */
-#chat-panel {
+/* #chat-panel {
     flex-grow: 1;
     align-items: stretch;
     height: 100%;
@@ -218,10 +218,10 @@ button.icon:active {
 .chat-date {
     font-size: 75%;
     color: var(--date-color);
-}
+} */
 
 /* Online users panel */
-#online-users-panel {
+/* #online-users-panel {
 	flex: 0 0 250px;
     height: 100%;
     padding: 0;
@@ -233,7 +233,7 @@ button.icon:active {
     align-items: flex-start;
     justify-content: start;
     overflow-y: auto;
-}
+} */
 
 /* Signin overlay */
 #information{

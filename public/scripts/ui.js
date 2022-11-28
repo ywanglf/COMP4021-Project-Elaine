@@ -135,113 +135,113 @@ const UserPanel = (function() {
     return { initialize, show, hide, update };
 })();
 
-const OnlineUsersPanel = (function() {
-    // This function initializes the UI
-    const initialize = function() {};
+// const OnlineUsersPanel = (function() {
+//     // This function initializes the UI
+//     const initialize = function() {};
 
-    // This function updates the online users panel
-    const update = function(onlineUsers) {
-        const onlineUsersArea = $("#online-users-area");
+//     // This function updates the online users panel
+//     const update = function(onlineUsers) {
+//         const onlineUsersArea = $("#online-users-area");
 
-        // Clear the online users area
-        onlineUsersArea.empty();
+//         // Clear the online users area
+//         onlineUsersArea.empty();
 
-		// Get the current user
-        const currentUser = Authentication.getUser();
+// 		// Get the current user
+//         const currentUser = Authentication.getUser();
 
-        // Add the user one-by-one
-        for (const username in onlineUsers) {
-            if (username != currentUser.username) {
-                onlineUsersArea.append(
-                    $("<div id='username-" + username + "'></div>")
-                        .append(UI.getUserDisplay(onlineUsers[username]))
-                );
-            }
-        }
-    };
+//         // Add the user one-by-one
+//         for (const username in onlineUsers) {
+//             if (username != currentUser.username) {
+//                 onlineUsersArea.append(
+//                     $("<div id='username-" + username + "'></div>")
+//                         .append(UI.getUserDisplay(onlineUsers[username]))
+//                 );
+//             }
+//         }
+//     };
 
-    // This function adds a user in the panel
-	const addUser = function(user) {
-        const onlineUsersArea = $("#online-users-area");
+//     // This function adds a user in the panel
+// 	const addUser = function(user) {
+//         const onlineUsersArea = $("#online-users-area");
 		
-		// Find the user
-		const userDiv = onlineUsersArea.find("#username-" + user.username);
+// 		// Find the user
+// 		const userDiv = onlineUsersArea.find("#username-" + user.username);
 		
-		// Add the user
-		if (userDiv.length == 0) {
-			onlineUsersArea.append(
-				$("<div id='username-" + user.username + "'></div>")
-					.append(UI.getUserDisplay(user))
-			);
-		}
-	};
+// 		// Add the user
+// 		if (userDiv.length == 0) {
+// 			onlineUsersArea.append(
+// 				$("<div id='username-" + user.username + "'></div>")
+// 					.append(UI.getUserDisplay(user))
+// 			);
+// 		}
+// 	};
 
-    // This function removes a user from the panel
-	const removeUser = function(user) {
-        const onlineUsersArea = $("#online-users-area");
+//     // This function removes a user from the panel
+// 	const removeUser = function(user) {
+//         const onlineUsersArea = $("#online-users-area");
 		
-		// Find the user
-		const userDiv = onlineUsersArea.find("#username-" + user.username);
+// 		// Find the user
+// 		const userDiv = onlineUsersArea.find("#username-" + user.username);
 		
-		// Remove the user
-		if (userDiv.length > 0) userDiv.remove();
-	};
+// 		// Remove the user
+// 		if (userDiv.length > 0) userDiv.remove();
+// 	};
 
-    return { initialize, update, addUser, removeUser };
-})();
+//     return { initialize, update, addUser, removeUser };
+// })();
 
-const ChatPanel = (function() {
-	// This stores the chat area
-    let chatArea = null;
+// const ChatPanel = (function() {
+// 	// This stores the chat area
+//     let chatArea = null;
 
-    // This function initializes the UI
-    const initialize = function() {
-		// Set up the chat area
-		chatArea = $("#chat-area");
+//     // This function initializes the UI
+//     const initialize = function() {
+// 		// Set up the chat area
+// 		chatArea = $("#chat-area");
 
-        // Submit event for the input form
-        $("#chat-input-form").on("submit", (e) => {
-            // Do not submit the form
-            e.preventDefault();
+//         // Submit event for the input form
+//         $("#chat-input-form").on("submit", (e) => {
+//             // Do not submit the form
+//             e.preventDefault();
 
-            // Get the message content
-            const content = $("#chat-input").val().trim();
+//             // Get the message content
+//             const content = $("#chat-input").val().trim();
 
-			// Clear the message
-            $("#chat-input").val("");
-        });
- 	};
+// 			// Clear the message
+//             $("#chat-input").val("");
+//         });
+//  	};
 
-    // This function updates the chatroom area
-    const update = function(chatroom) {
-        // Clear the online users area
-        chatArea.empty();
+//     // This function updates the chatroom area
+//     const update = function(chatroom) {
+//         // Clear the online users area
+//         chatArea.empty();
 
-        // Add the chat message one-by-one
-        for (const message of chatroom) {
-			addMessage(message);
-        }
-    };
+//         // Add the chat message one-by-one
+//         for (const message of chatroom) {
+// 			addMessage(message);
+//         }
+//     };
 
-    // This function adds a new message at the end of the chatroom
-    const addMessage = function(message) {
-		const datetime = new Date(message.datetime);
-		const datetimeString = datetime.toLocaleDateString() + " " +
-							   datetime.toLocaleTimeString();
+//     // This function adds a new message at the end of the chatroom
+//     const addMessage = function(message) {
+// 		const datetime = new Date(message.datetime);
+// 		const datetimeString = datetime.toLocaleDateString() + " " +
+// 							   datetime.toLocaleTimeString();
 
-		chatArea.append(
-			$("<div class='chat-message-panel row'></div>")
-				.append(UI.getUserDisplay(message.user))
-				.append($("<div class='chat-message col'></div>")
-					.append($("<div class='chat-date'>" + datetimeString + "</div>"))
-					.append($("<div class='chat-content'>" + message.content + "</div>"))
-				)
-		);
-		chatArea.scrollTop(chatArea[0].scrollHeight);
-    };
+// 		chatArea.append(
+// 			$("<div class='chat-message-panel row'></div>")
+// 				.append(UI.getUserDisplay(message.user))
+// 				.append($("<div class='chat-message col'></div>")
+// 					.append($("<div class='chat-date'>" + datetimeString + "</div>"))
+// 					.append($("<div class='chat-content'>" + message.content + "</div>"))
+// 				)
+// 		);
+// 		chatArea.scrollTop(chatArea[0].scrollHeight);
+//     };
 
-    return { initialize, update, addMessage };
-})();
+//     return { initialize, update, addMessage };
+// })();
 
 const UI = (function() {
     // This function gets the user display
@@ -253,7 +253,8 @@ const UI = (function() {
     };
 
     // The components of the UI are put here
-    const components = [SignInForm, UserPanel, OnlineUsersPanel, ChatPanel];
+    // const components = [SignInForm, UserPanel, OnlineUsersPanel, ChatPanel];
+    const components = [SignInForm, UserPanel];
 
     // This function initializes the UI
     const initialize = function() {

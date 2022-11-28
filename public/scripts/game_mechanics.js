@@ -98,6 +98,7 @@ const GameMechanics = (function() {
                 sounds.background.pause();
                 sounds.gameover.play();
                 $("#game-over").show();
+                Socket.disconnect();
                 return;
             }
 
