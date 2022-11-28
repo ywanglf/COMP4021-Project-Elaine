@@ -142,7 +142,8 @@ const GameMechanics = (function() {
             player.update(now);
             anotherPlayer.update(now);
             if (fire.getAge(now) > fireMaxAge){
-                fire = Fire(context, 1000, 1000, fireColor);
+                // fire = Fire(context, 1000, 1000, fireColor);
+                fire.changeLocation(1000,1000);
             }
             fire.update(now);
             gem.update(now);
@@ -182,7 +183,8 @@ const GameMechanics = (function() {
                     player.burnObstacle(); 
                     fireX = player.fireXLocation();
                     fireY = player.fireYLocation();
-                    fire.changeLocation(fireX, fireY);
+                    // fire.changeLocation(fireX, fireY);
+                    fire = Fire(context, fireX, fireY, fireColor);
                     break;
                 }
             }
