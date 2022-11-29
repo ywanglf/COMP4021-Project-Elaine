@@ -5,7 +5,7 @@ Student ID: 20689735
 
 ## :space_invader:	 To run the game
 ```
-install npm ____
+npm install express bcrypt express-session
 ```
 
 ```
@@ -18,10 +18,10 @@ Requirements and Grading Scheme: https://course.cse.ust.hk/comp4021/2022f_projec
 ## :space_invader:	 Game Description
 Ghost Chain 
 
-An online multiplayer game. Every ghost wants to seize the other's energy core to become stronger. But at the same time, each ghost can create obstacles to prevent the opponent from obtaining their own energy core, or destroy the obstacles set by the opponent to plunder the opponent's core. The one that gets the core in the battle wins. 
+An online multiplayer game. Every ghost has its own energy core and it also wants to seize the other's energy core to become stronger. Each ghost can create obstacles to prevent the opponent from obtaining their own energy core, or destroy the obstacles set by the opponent to plunder the opponent's core. The one that gets the core in the battle wins. 
 
 ## :space_invader:	 Game Mechanics
-Two players start at the same time and they need to protect their own crystal to be stolen by the opponent.
+Two players start at the same time and they need to protect their own energy core to be stolen by the opponent.
 
 The player can either:
 1. Move the ghost by pressing `up, left, down, right` 
@@ -29,7 +29,7 @@ The player can either:
 3. Clear the path to steal the opponent's crystal by burning the obstacle by `key W`
 4. Cheatmode: speedup the ghost by pressing `space bar`
 
-The player would only win if he/she steals the crystal.
+The player would only win if he/she steals the energy core.
 
 ## :space_invader:	 Checklist
 ### Game front page
