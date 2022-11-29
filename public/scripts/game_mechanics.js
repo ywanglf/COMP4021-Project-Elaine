@@ -21,9 +21,6 @@ const GameMechanics = (function() {
                                         //top, left, bottom, right
         const gameArea = BoundingBox(context, 50, 100, 430, 750);
 
-        // Playground.getLastLocation();
-        Playground.initiateStatistics(Authentication.getUser().username);
-        
         /* Create the sprites in the game */
 
         // Create skeletons
@@ -48,6 +45,7 @@ const GameMechanics = (function() {
         let anotherPlayerY;
 
         let {playerX, playerY, gemX, gemY} = StartGame.retrieveLocation();
+
         console.log(Authentication.getUser().username+ " location: " + playerX+", "+playerY);
         if (Authentication.getUser().avatar == "white"){
             player = Player(context, playerX, playerY, gameArea, 0);   // start from bottom left corner
@@ -64,9 +62,11 @@ const GameMechanics = (function() {
         anotherPlayerY = gemY;
         var fire = Fire(context, 1000, 1000, fireColor);    // to make the fire invisible
         var anotherPlayer = Player(context, anotherPlayerX, anotherPlayerY, gameArea, 2); // make the opponent be black ghost
-        
 
-        Playground.initiateLocation(Authentication.getUser().username, playerX, playerY);
+        // setTimeout(() => {                          // ensure statistics and 
+        //     console.log("Delayed for 1 second.");   
+        // }, "1000");
+
 
         /* The main processing of the game */
         function doFrame(now) {
@@ -94,7 +94,9 @@ const GameMechanics = (function() {
             }
 
             /* Handle the game over situation here */
-            if (Playground.gemIsCollected()){
+            if (Playground.gemIsCollected() || timeRemaining == 0){
+                $(document).off("keyup");
+                $(document).off("keydown");
                 sounds.background.pause();
                 sounds.gameover.play();
                 $("#game-over").show();
@@ -102,12 +104,13 @@ const GameMechanics = (function() {
                 return;
             }
 
-            if (timeRemaining == 0) {
-                sounds.background.pause();
-                sounds.gameover.play();
-                $("#game-over").show();
-                return;
-            }
+            // if (timeRemaining == 0) {
+            //     sounds.background.pause();
+            //     sounds.gameover.play();
+            //     $("#game-over").show();
+            //     Socket.disconnect();
+            //     return;
+            // }
 
             // update position of the opponent
             let {xOpponentLocation, yOpponentLocation} = Playground.getOpponentLastLocation();
@@ -181,6 +184,7 @@ const GameMechanics = (function() {
                 case 81: player.putObstacle(); break;
                 // key 'W'
                 case 87:{ 
+                    console.log("event called");
                     player.burnObstacle(); 
                     fireX = player.fireXLocation();
                     fireY = player.fireYLocation();
@@ -222,7 +226,13 @@ const GameMechanics = (function() {
             setTimeout(countdown, 1000);
         } else {
             document.getElementById("game-title").innerHTML = "Start!";
+            
+            // initialization
+            let {playerX, playerY, gemX, gemY} = StartGame.retrieveLocation();
             counting = 4;   // initialize for the next game
+            Socket.initializeObstacles();
+            Playground.initiateStatistics(Authentication.getUser().username);  
+            Playground.initiateLocation(Authentication.getUser().username, playerX, playerY);
             setTimeout(begin, 1000);
         }
     };

@@ -21,7 +21,7 @@
     --date-color: gray;
 
     --register-form-background: black;
-    --warning-color: red;
+    --warning-color: red; 
 
     --button-color: white;
     --button-background: #881EE4;
@@ -80,6 +80,9 @@ body {
 .warning {
     font-weight: bold;
     color: var(--warning-color);
+    padding: 3px;
+    background-color: rgba(240, 248, 255, 0.825);
+    border-radius: 3px;
 }
 
 /* Form related */
@@ -257,7 +260,7 @@ button.icon:active {
     left: 5px;
     padding: 23px;
     line-height: 23px;
-    top: 680px;
+    top: 730px;
 }
 
 #signin-form {

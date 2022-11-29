@@ -2,16 +2,31 @@
  "1": {
   "avatar": "white",
   "name": "1",
-  "password": "$2b$10$9JkoU0a3aOFYA1Ilw1h/YOgjv9Crbs6L.5uhEy2zvKUkHnu6OnZTy"
+  "password": "$2b$10$O9qsfPkC2IZwsqm1YQ9mlOAOXD5ySXKHMVmBEmlQJIbk.hf1uvEyO"
  },
  "2": {
-  "avatar": "green",
+  "avatar": "white",
   "name": "2",
-  "password": "$2b$10$VtDzgYbPJYWcEvP2cBKkOu9BKF0b/F9t/8PmLNmWNwymaU5wQQgKS"
+  "password": "$2b$10$64fmz6wlriVq3ST1MmarOe/v2UqCE8ShIAJf0qM31wlewXYsaSwsO"
  },
  "3": {
   "avatar": "green",
   "name": "3",
   "password": "$2b$10$aFi8ZcGiC3jS3kcJ1BhOjeufABgcnu4QgQmjO0/gdHmkrr5PPF4ia"
+ },
+ "User1": {
+  "avatar": "white",
+  "name": "User1",
+  "password": "$2b$10$FSXpqKtWfiAm7VSIyB6MO.qNiIsPXkT2ajHkTANe7gkBaw3zsoTgC"
+ },
+ "User2": {
+  "avatar": "green",
+  "name": "User2",
+  "password": "$2b$10$MwRYft8YGhPnhbbHYYRKSOOE/K8p7RIeAUTbufLDfJX3gcayBBnHS"
+ },
+ "a": {
+  "avatar": "white",
+  "name": "a",
+  "password": "$2b$10$LlgUIy6Z.c3MlLZoCdqMp./rTBCJqSRWpau105XacQCebETxvmKmm"
  }
 }

@@ -215,7 +215,7 @@ io.on("connection", (socket) => {
             var temp = [];
             statistics.forEach(function(stat) {
                 if (stat["user"]["username"] == username){
-                    // skip
+                    // skip, already deleted
                 }
                 else {
                     temp.push(stat);
@@ -228,7 +228,7 @@ io.on("connection", (socket) => {
             var temp = [];
             locations.forEach(function(stat) {
                 if (stat["user"]["username"] == username){
-                    // skip
+                    // skip, already deleted
                 }
                 else {
                     temp.push(stat);
@@ -237,7 +237,7 @@ io.on("connection", (socket) => {
             fs.writeFileSync("data/location.json", JSON.stringify(temp, null, " "));
             
             // Broadcast the signed-out user
-            io.emit("remove user", JSON.stringify(socket.request.session.user));
+            // io.emit("remove user", JSON.stringify(socket.request.session.user));
         }
     });
 
@@ -249,6 +249,23 @@ io.on("connection", (socket) => {
         // console.log(onlineUsers);
         // console.log("--- --------- --- ");
         socket.emit("users", JSON.stringify(onlineUsers));
+    });
+
+    // initialize obstacles locations in json file
+    socket.on("initialize obstacles", () => {
+        let obstacles = [];
+        let initialLocations = JSON.parse(fs.readFileSync("data/initialObstacles.json"));
+
+        initialLocations.forEach(function(obstacle) {
+            let x = obstacle["anyName"]["x"];
+            let y = obstacle["anyName"]["y"];
+            const json = {
+                anyName: { x, y }
+            }
+
+            obstacles.push(json);
+        });
+        fs.writeFileSync("data/obstacles.json", JSON.stringify(obstacles, null, " "));
     });
 
     // Set up the get obstacles event
@@ -296,9 +313,10 @@ io.on("connection", (socket) => {
         const json = {
             user: {username, x, y}
         }
-        // console.log(json);
+        console.log("initiate location");
+        console.log(json);
         const locations = JSON.parse(fs.readFileSync("data/location.json"));
-
+        console.log("--- end ---");
         // location info of the last game -> clear
         // if (locations.length == 2){
         //     locations.pop();
@@ -371,6 +389,7 @@ io.on("connection", (socket) => {
 
     // initiate the statistics.json
     socket.on("initiate statistics", username => {
+        console.log("-> reached server initiatate statistics");
         let numObstaclesSet = 0;
         let numObstaclesBurnt = 0;
         let gem = 0;
@@ -380,10 +399,10 @@ io.on("connection", (socket) => {
         const statistics = JSON.parse(fs.readFileSync("data/statistics.json"));
 
         // statistics info of the last game -> clear
-        if (statistics.length == 2){
-            statistics.pop();
-            statistics.pop();
-        }
+        // if (statistics.length == 2){
+        //     statistics.pop();
+        //     statistics.pop();
+        // }
         statistics.push(json);
         fs.writeFileSync("data/statistics.json", JSON.stringify(statistics, null, " "));
     });

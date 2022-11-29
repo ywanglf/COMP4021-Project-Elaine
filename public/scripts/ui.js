@@ -377,6 +377,7 @@ const Playground = (function() {
     };
 
     const initiateStatistics = function(username){
+        console.log("-> reached ui initiatate statistics");
         Socket.initiateStatistics(username);
     };
 

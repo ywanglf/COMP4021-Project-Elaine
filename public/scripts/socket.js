@@ -86,6 +86,13 @@ const Socket = (function() {
         
     };
 
+    // Initialize Obstacles Location in json file
+    const initializeObstacles = function() {
+        if (socket && socket.connected) {
+            socket.emit("initialize obstacles");
+        }
+    };
+
     // This function adds an obstacle evenr to the server
     const addObstacle = function(newObstacle) {
         if (socket && socket.connected) {
@@ -133,6 +140,7 @@ const Socket = (function() {
 
     const initiateStatistics = function(username) {
         if (socket && socket.connected) {
+            console.log("-> reached socket initiatate statistics");
             socket.emit("initiate statistics", username);
         }
     };
@@ -163,7 +171,7 @@ const Socket = (function() {
     }
 
     return { getSocket, connect, disconnect,
-        addObstacle, getObstacles, deleteObstacle,
+        initializeObstacles, addObstacle, getObstacles, deleteObstacle,
         inititatePlayerLocation, lastLocation, getLocation, getOpponentLocation,
         initiateStatistics, getStatistics, 
         updateGemStatistics, updateNumObstacleSet, updateNumObstaclesBurnt };
