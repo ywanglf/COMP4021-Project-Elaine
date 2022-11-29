@@ -18,15 +18,5 @@
   "avatar": "green",
   "name": "User2",
   "password": "$2b$10$KXKyIl.m5Eosboas6BGwHu9B1/rQaqO3ZsSsBPCneZxeAGw3EEE8W"
- },
- "User3": {
-  "avatar": "white",
-  "name": "User3",
-  "password": "$2b$10$iZUxg.sp0kZd3rwdi03HauNUY0R0a1Y/ijXShLhHc1H0u945moIBa"
- },
- "newPlayer": {
-  "avatar": "white",
-  "name": "newPlayer",
-  "password": "$2b$10$IZhHtFsEB0DJQPrNGalJ9OHj/ZSyz9zmIFF3xaYPA71Zh19eyUhce"
  }
 }

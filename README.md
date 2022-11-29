@@ -4,17 +4,19 @@ Name: WANG, Yiran
 Student ID: 20689735
 
 ## :space_invader:	 To run the game
-I can run the project without `package.json`. I guess it is because I installed them somewhere else. I still put the `package.json` file but I am not so sure whether it would work or not. So sorry about this. 
-```
-npm install express bcrypt express-session
-```
 
+```
+npm install
+```
+I can run the project without `package.json`. It should be because I installed them somewhere else. I still put the `package.json` file and checked with my other laptop. But if it does not work, please use `npm install express bcrypt express-session`. Sorry about this. 
 ```
 node game_server.js
 ```
+** Important:** 
+- Please open the two browsers first and they should be visible at the same time (like in the project video).
+- Please do not log out or refresh or close the window during the game. 
+- Existing users: 1, 2, User1, User2.
 
-
-Requirements and Grading Scheme: https://course.cse.ust.hk/comp4021/2022f_project/comp4021_project_marking_2022f.pdf
 
 ## :space_invader:	 Game Description
 Ghost Chain 
@@ -50,4 +52,4 @@ The player would only win if he/she steals the energy core, otherwise it is a dr
 * [x] Restart the game/ back to front page
 ### Others
 * [x] Graphic and sounds
-* [ ] Project video
+* [x] Project video

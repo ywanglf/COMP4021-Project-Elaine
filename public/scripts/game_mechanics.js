@@ -63,10 +63,6 @@ const GameMechanics = (function() {
         var fire = Fire(context, 1000, 1000, fireColor);    // to make the fire invisible
         var anotherPlayer = Player(context, anotherPlayerX, anotherPlayerY, gameArea, 2); // make the opponent be black ghost
 
-        // setTimeout(() => {                          // ensure statistics and 
-        //     console.log("Delayed for 1 second.");   
-        // }, "1000");
-
 
         /* The main processing of the game */
         function doFrame(now) {
