@@ -29,7 +29,7 @@ The player can either:
 3. Clear the path to steal the opponent's crystal by burning the obstacle by `key W`
 4. Cheatmode: speedup the ghost by pressing `space bar`
 
-The player would only win if he/she steals the energy core.
+The player would only win if he/she steals the energy core, otherwise it is a draw.
 
 ## :space_invader:	 Checklist
 ### Game front page
