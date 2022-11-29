@@ -313,10 +313,10 @@ io.on("connection", (socket) => {
         const json = {
             user: {username, x, y}
         }
-        console.log("initiate location");
-        console.log(json);
+        // console.log("initiate location");
+        // console.log(json);
         const locations = JSON.parse(fs.readFileSync("data/location.json"));
-        console.log("--- end ---");
+        // console.log("--- end ---");
         // location info of the last game -> clear
         // if (locations.length == 2){
         //     locations.pop();
