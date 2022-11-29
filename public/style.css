@@ -192,52 +192,7 @@ button.icon:active {
     height: calc(100% - 80px);
     background: var(--main-panel-background);
 }
-
-/* Chat area */
-/* #chat-panel {
-    flex-grow: 1;
-    align-items: stretch;
-    height: 100%;
-    background: var(--chat-panel-background);
-    padding: 0;
-}
-#chat-area {
-    height: 100%;
-    align-items: flex-start;
-    justify-content: start;
-    gap: 20px;
-    overflow-y: auto;
-    padding: 10px;
-}
-.chat-message-panel {
-    align-items: flex-start;
-    padding: 0;
-}
-.chat-message {
-    align-items: start;
-    gap: 5px;
-    padding: 0;
-}
-.chat-date {
-    font-size: 75%;
-    color: var(--date-color);
-} */
-
-/* Online users panel */
-/* #online-users-panel {
-	flex: 0 0 250px;
-    height: 100%;
-    padding: 0;
-    background: var(--online-users-panel-background);
-}
-#online-users-area {
-    flex-grow: 1;
-    width: 100%;
-    align-items: flex-start;
-    justify-content: start;
-    overflow-y: auto;
-} */
-
+ 
 /* Signin overlay */
 #information{
     width: 1005px;
@@ -246,7 +201,7 @@ button.icon:active {
     background: black;
     color: #b872f5;
     position: fixed;
-    left: 5px; top: 0px;
+    left: 5px; top: 30px;
     padding: 23px;
     line-height: 23px;
 }
@@ -309,12 +264,9 @@ button.icon:active {
     position: relative;
     top: 562px;
     width: 1000px;
-    /* height: calc(100%-642px); */
     padding: 10px;
     padding-bottom: 60px;
     line-height: 30px;
-    /* border: 20px solid black; */
-    /* box-sizing: border-box; */
 }
 canvas, #counter, #game-start, #game-over {
     position: absolute;

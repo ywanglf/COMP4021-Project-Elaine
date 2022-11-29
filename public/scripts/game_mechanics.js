@@ -14,7 +14,7 @@ const GameMechanics = (function() {
         };
 
         const totalGameTime = 240;   // Total game time in seconds
-        const fireMaxAge = 2000;     // The maximum age of the fire in milliseconds
+        const fireMaxAge = 1000;     // The maximum age of the fire in milliseconds
         let gameStartTime = 0;      // The timestamp when the game starts
 
         /* Create the game area */
@@ -103,14 +103,6 @@ const GameMechanics = (function() {
                 Socket.disconnect();
                 return;
             }
-
-            // if (timeRemaining == 0) {
-            //     sounds.background.pause();
-            //     sounds.gameover.play();
-            //     $("#game-over").show();
-            //     Socket.disconnect();
-            //     return;
-            // }
 
             // update position of the opponent
             let {xOpponentLocation, yOpponentLocation} = Playground.getOpponentLastLocation();

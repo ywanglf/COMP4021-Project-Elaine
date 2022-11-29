@@ -376,7 +376,11 @@ io.on("connection", (socket) => {
         const locations = JSON.parse(fs.readFileSync("data/location.json"));
         let x;
         let y;
-        if (locations[0]["user"]["username"] != username){
+        if (locations[0] == undefined || locations[1] == undefined){
+            x = 0;
+            y = 0;
+        }
+        else if (locations[0]["user"]["username"] != username){
             x = locations[0]["user"]["x"];
             y = locations[0]["user"]["y"];
         }

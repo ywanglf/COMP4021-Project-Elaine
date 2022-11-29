@@ -59,8 +59,7 @@ const Player = function(ctx, x, y, gameArea, colour) {
     // The sprite object is configured for the player sprite here.
     sprite.setSequence(sequences[colour].idleDown)
           .setScale(1.5)
-        //   .setShadowScale({ x: 0.75, y: 0.20 })
-            .setShadowScale({ x: 0, y: 0 })
+          .setShadowScale({ x: 0, y: 0 })
           .useSheet("static/ghosts_sprite.png");
 
     // This is the moving direction, which can be a number from 0 to 4:
@@ -219,6 +218,11 @@ const Player = function(ctx, x, y, gameArea, colour) {
                 fireY = box.getBottom();
 
                 break;
+            }
+            else {
+                // set invisible
+                fireX = 1000;
+                fireY = 1000;
             }
         }
 

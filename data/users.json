@@ -2,31 +2,31 @@
  "1": {
   "avatar": "white",
   "name": "1",
-  "password": "$2b$10$O9qsfPkC2IZwsqm1YQ9mlOAOXD5ySXKHMVmBEmlQJIbk.hf1uvEyO"
+  "password": "$2b$10$yYYHtrGjGyiyJNcmitoe4ubUqRjSxZtmRRVAyC7mMTT6doIs3qC8W"
  },
  "2": {
-  "avatar": "white",
+  "avatar": "green",
   "name": "2",
   "password": "$2b$10$64fmz6wlriVq3ST1MmarOe/v2UqCE8ShIAJf0qM31wlewXYsaSwsO"
- },
- "3": {
-  "avatar": "green",
-  "name": "3",
-  "password": "$2b$10$aFi8ZcGiC3jS3kcJ1BhOjeufABgcnu4QgQmjO0/gdHmkrr5PPF4ia"
  },
  "User1": {
   "avatar": "white",
   "name": "User1",
-  "password": "$2b$10$FSXpqKtWfiAm7VSIyB6MO.qNiIsPXkT2ajHkTANe7gkBaw3zsoTgC"
+  "password": "$2b$10$SYBbMBGNQU3V.8aAjvwCG.Td7Wm0AgdPYXyooO/Wn6NZWr1Z3ydBG"
  },
  "User2": {
   "avatar": "green",
   "name": "User2",
-  "password": "$2b$10$MwRYft8YGhPnhbbHYYRKSOOE/K8p7RIeAUTbufLDfJX3gcayBBnHS"
+  "password": "$2b$10$KXKyIl.m5Eosboas6BGwHu9B1/rQaqO3ZsSsBPCneZxeAGw3EEE8W"
  },
- "a": {
+ "User3": {
   "avatar": "white",
-  "name": "a",
-  "password": "$2b$10$LlgUIy6Z.c3MlLZoCdqMp./rTBCJqSRWpau105XacQCebETxvmKmm"
+  "name": "User3",
+  "password": "$2b$10$iZUxg.sp0kZd3rwdi03HauNUY0R0a1Y/ijXShLhHc1H0u945moIBa"
+ },
+ "newPlayer": {
+  "avatar": "white",
+  "name": "newPlayer",
+  "password": "$2b$10$IZhHtFsEB0DJQPrNGalJ9OHj/ZSyz9zmIFF3xaYPA71Zh19eyUhce"
  }
 }

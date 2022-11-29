@@ -4,6 +4,7 @@ Name: WANG, Yiran
 Student ID: 20689735
 
 ## :space_invader:	 To run the game
+I can run the project without `package.json`. I guess it is because I installed them somewhere else. I still put the `package.json` file but I am not so sure whether it would work or not. So sorry about this. 
 ```
 npm install express bcrypt express-session
 ```

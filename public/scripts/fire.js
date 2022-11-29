@@ -10,24 +10,20 @@ const Fire = function(ctx, x, y, colour) {
     let sheet;
 
     if(colour == "white"){
-        sheet = "static/ghost_fire_sprite/png/white/start/burning_start_1.png"
+        sheet = "static/ghost_fire_sprite/png/purple/loops/burning_loop_1.png"
     }else if(colour == "green"){
-        sheet = "static/ghost_fire_sprite/png/green/start/burning_start_1.png"
+        sheet = "static/ghost_fire_sprite/png/blue/loops/burning_loop_1.png"
     }
 
-    const sequences = {
-        start: {x: 0, y: 0, width: 24, height: 32, count: 4, timing: 200, loop: true},
-        loop: {x: 0, y: 0, width: 24, height: 32, count: 4, timing: 200, loop: true},
-        end: {x: 0, y: 0, width: 24, height: 32, count: 4, timing: 200, loop: true}
-    };
+    const sequence = {x: 0, y: 8, width: 24, height: 24, count: 8, timing: 200, loop: true};
 
     // This is the sprite object of the gem created from the Sprite module.
     const sprite = Sprite(ctx, x, y);
 
     // The sprite object is configured for the gem sprite here.
-    sprite.setSequence(sequences.start)
-          .setScale(2)
-          .setShadowScale({ x: 0.75, y: 0.2 })
+    sprite.setSequence(sequence)
+          .setScale(1.5)
+          .setShadowScale({ x: 0, y: 0 })
           .useSheet(sheet);
 
 

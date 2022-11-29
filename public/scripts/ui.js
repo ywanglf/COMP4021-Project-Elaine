@@ -430,7 +430,9 @@ const Playground = (function() {
             return true;
         } else {
             // setting the ranks (draw)
+            $("#game-over-title").text("YOU LOSE");
             $("#game-over-rank1").text("NO RANKING");
+            $("#game-over-rank2").text("");
             // setting for statistics
             $("#game-over-player1").text("Player "+statistics[0]["user"]["username"]);
             $("#game-over-player2").text("Player "+statistics[1]["user"]["username"]);
@@ -440,8 +442,6 @@ const Playground = (function() {
             $("#game-over-set2").text("Obstacles Set: "+statistics[1]["user"]["numObstaclesSet"]);
             $("#game-over-destroy1").text("Obstacles Burnt: "+statistics[0]["user"]["numObstaclesBurnt"]);
             $("#game-over-destroy2").text("Obstacles Burnt: "+statistics[1]["user"]["numObstaclesBurnt"]);
-
-            // $("#game-over-rank2").text("Participated: " + statistics[0]["user"]["username"]);
             return false;
         }
     };
