@@ -151,7 +151,7 @@ const Player = function(ctx, x, y, gameArea, colour) {
             }
         }
         var newBox = newObstacle.getBoundingBox();
-        console.log("--> new Box: "+newBox.getTop()+"; "+newBox.getLeft()+"; "+newBox.getBottom()+"; "+newBox.getRight()+"; ");
+        // console.log("--> new Box: "+newBox.getTop()+"; "+newBox.getLeft()+"; "+newBox.getBottom()+"; "+newBox.getRight()+"; ");
 
         let findIntersection = false;
         for (let i = 0; i < obstacles.length; i++){

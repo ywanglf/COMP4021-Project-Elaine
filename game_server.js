@@ -191,7 +191,7 @@ io.on("connection", (socket) => {
     if (socket.request.session.user){
         const { username, avatar, name } = socket.request.session.user;
         onlineUsers[username] = { avatar, name };
-        console.log("add to online users: "+ username);
+        // console.log("add to online users: "+ username);
 
         // console.log("--- add user --- ");
         // console.log(onlineUsers);
@@ -207,7 +207,7 @@ io.on("connection", (socket) => {
             const { username } = socket.request.session.user;
             if (onlineUsers[username]){
                 delete onlineUsers[username];
-                console.log("remove from online users when LOGOUT: "+ username);
+                // console.log("remove from online users when LOGOUT: "+ username);
             }
             
             // delete statistics
@@ -393,7 +393,7 @@ io.on("connection", (socket) => {
 
     // initiate the statistics.json
     socket.on("initiate statistics", username => {
-        console.log("-> reached server initiatate statistics");
+        // console.log("-> reached server initiatate statistics");
         let numObstaclesSet = 0;
         let numObstaclesBurnt = 0;
         let gem = 0;

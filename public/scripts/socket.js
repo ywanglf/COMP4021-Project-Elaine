@@ -63,7 +63,6 @@ const Socket = (function() {
         });
 
         socket.on("location", (json) => {
-            console.log("location; x = "+json["x"]+"; y = "+json["y"]);
             Playground.retrieveLocation(json);
         });
 
@@ -140,7 +139,6 @@ const Socket = (function() {
 
     const initiateStatistics = function(username) {
         if (socket && socket.connected) {
-            console.log("-> reached socket initiatate statistics");
             socket.emit("initiate statistics", username);
         }
     };

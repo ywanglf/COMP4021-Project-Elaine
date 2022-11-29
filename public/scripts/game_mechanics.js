@@ -46,7 +46,7 @@ const GameMechanics = (function() {
 
         let {playerX, playerY, gemX, gemY} = StartGame.retrieveLocation();
 
-        console.log(Authentication.getUser().username+ " location: " + playerX+", "+playerY);
+        // console.log(Authentication.getUser().username+ " location: " + playerX+", "+playerY);
         if (Authentication.getUser().avatar == "white"){
             player = Player(context, playerX, playerY, gameArea, 0);   // start from bottom left corner
             gem = Gem(context, gemX, gemY, "green");           // The eneger core of the opponent
@@ -176,7 +176,6 @@ const GameMechanics = (function() {
                 case 81: player.putObstacle(); break;
                 // key 'W'
                 case 87:{ 
-                    console.log("event called");
                     player.burnObstacle(); 
                     fireX = player.fireXLocation();
                     fireY = player.fireYLocation();
@@ -210,7 +209,7 @@ const GameMechanics = (function() {
     const countdown = function() {
         // Decrease the remaining time
         counting = counting - 1;
-        console.log(counting);
+        // console.log(counting);
         // Continue the countdown if there is still time;
         // otherwise, start the game when the time is up
         if (counting > 0){
