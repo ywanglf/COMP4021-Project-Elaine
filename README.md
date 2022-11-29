@@ -12,14 +12,14 @@ I can run the project without `package.json`. It should be because I installed t
 ```
 node game_server.js
 ```
-** Important:** 
+### Important:
 - Please open the two browsers first and they should be visible at the same time (like in the project video).
 - Please do not log out or refresh or close the window during the game. 
 - Existing users: 1, 2, User1, User2.
 
 
 ## :space_invader:	 Game Description
-Ghost Chain 
+### Ghost Chain 
 
 An online multiplayer game. Every ghost has its own energy core and it also wants to seize the other's energy core to become stronger. Each ghost can create obstacles to prevent the opponent from obtaining their own energy core, or destroy the obstacles set by the opponent to plunder the opponent's core. The one that gets the core in the battle wins. 
 
